@@ -24,7 +24,7 @@ logging.register_options(CONF)
 
 global_opts = [
     cfg.StrOpt('rootwrap_config',
-               default='/etc/cinder/agent/rootwrap.conf',
+               default='/etc/cinderagent/rootwrap.conf',
                help='Path to the rootwrap configuration file to use for '
                     'running commands as root'),
 ]
@@ -33,9 +33,10 @@ CONF.register_opts(global_opts)
 
 
 def get_root_helper():
-    # TODO(e0ne): uncomment and delete debug code
-    # return 'sudo cinder-agent-rootwrap %s' % CONF.rootwrap_config
-    return 'sudo'
+    # TODO (e0ne): uncomment and delete debug code
+    return 'sudo cinderagent-rootwrap %s' % CONF.rootwrap_config
+    # TODO (e0ne): remove it!
+    # return 'sudo'
 
 
 def brick_get_connector(protocol, driver=None,

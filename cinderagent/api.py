@@ -33,7 +33,7 @@ def json_responce(func):
 @cinder_agent_api.route('/connector')
 @json_responce
 def get_connector():
-    LOG.debug('get_connector call with: %s', flask.request._data)
+    LOG.debug('get_connector call with: %s', flask.request.data)
     data = json.loads(flask.request.data)
     protocol = data.get('protocol', 'iscsi')
     conn = utils.brick_get_connector(protocol)
